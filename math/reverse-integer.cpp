@@ -4,6 +4,7 @@
 using namespace std;
 int solve(int &val)
 {
+    int original_value = val;
     int aux, result = 0;
     while (val / 10 != 0)
     {
