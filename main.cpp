@@ -1,18 +1,24 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
-
+int solve(int &val)
+{
+    int aux, result = 0;
+    while (val / 10 != 0)
+    {
+        aux = val % 10;
+        val /= 10;
+        if (aux == 0)
+            continue;
+        result = result * 10 + aux;
+    }
+    return result * 10 + val;
+}
 int main()
 {
-    string number, aux;
-    cin >> number;
-    if (number[0] == '-')
-    {
-        aux = number.substr(1, number.size() - 1);
-        cout << '-' << string(aux.rbegin(), aux.rend()) << endl;
-    }
-    else
-    {
-        cout << string(number.rbegin(), number.rend()) << endl;
-    }
+    int val;
+    cin >> val;
+
+    cout << solve(val) << endl;
 }
