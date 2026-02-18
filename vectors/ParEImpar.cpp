@@ -1,10 +1,12 @@
+// 1259 - Par e Impar
+// https://judge.beecrowd.com/es/problems/view/1259
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
-void solve()
-{
-}
+// void solve()
+// {
+// }
 int main()
 {
     int attempts, value;
