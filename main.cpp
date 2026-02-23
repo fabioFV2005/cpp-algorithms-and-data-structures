@@ -1,55 +1,30 @@
+//  Container With Most Water - leetcode
 #include <iostream>
-#include <vector>
 #include <algorithm>
 #include <string>
 using namespace std;
-
+bool solve()
+{
+}
 int main()
 {
-    int pos = 0;
-    string str = "   -123b4567890";
-    string aux_str;
-    char c = str[pos];
-    while (c == ' ')
+    int n, original_index = 0, max_area = 0, current_area;
+    int array[] = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+    int size = sizeof(array) / sizeof(array[0]);
+    while (original_index < size)
     {
-        pos += 1;
-        c = str[pos];
-    }
-
-    str = str.substr(pos);
-    pos = 0;
-    for (int i = 0; i < str.size(); i++)
-    {
-        if (str[i] == ' ' && (aux_str.empty()))
-            continue;
-        if ((str[i] >= '0' && str[i] <= '9') || (str[i] == '-' && aux_str.empty()))
+        for (int j = 1; j < size; j++)
         {
-            pos++;
-            aux_str += str[i];
+
+            current_area = array[original_index] * j;
+            cout << array[original_index] << " X " << array[j] << " = " << current_area << endl;
         }
-        else
-            break;
-    }
-    int int_value = 0, unit_value = 1;
-    long long sum = 0;
-    cout << aux_str << endl;
-    while (pos--)
-    {
-        if (aux_str[pos] == '-')
+        if (current_area > max_area)
         {
-            sum *= -1;
-            break;
+            max_area = current_area;
         }
-        int_value = aux_str[pos] - '0';
-
-        sum += int_value * unit_value;
-        if (sum > INT_MAX)
-            return INT_MAX;
-        if (sum < INT_MIN)
-            return INT_MIN;
-        unit_value *= 10;
+        original_index++;
     }
-    return sum;
-
+    cout << max_area << endl;
     return 0;
 }
