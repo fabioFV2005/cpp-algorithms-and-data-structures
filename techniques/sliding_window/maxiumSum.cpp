@@ -5,20 +5,21 @@ using namespace std;
 int maxSum(vector<int> &arr, int k)
 {
     int n = arr.size();
-    int max_sum = INT_MIN;
-    // Consider all blocks starting with i
-    for (int i = 0; i <= n - k; i++)
+    int max_sum = 0;
+    if (n <= k)
     {
-        int current_sum = 0;
-        // Calculate sum of current subarray of size k
-
-        for (int j = 0; j < k; j++)
-        {
-            current_sum += arr[i + j];
-        }
-        // Update result if required
-        max_sum = max(current_sum, max_sum);
+        cout << "invalid";
+        return -1;
     }
+    for (int i = 0; i < k; i++)
+        max_sum += arr[i];
+    int window_sum = max_sum;
+    for (int i = k; i < n; i++)
+    {
+        window_sum += arr[i] - arr[i - k];
+        max_sum = max(max_sum, window_sum);
+    }
+
     return max_sum;
 }
 int main(int argc, char const *argv[])
