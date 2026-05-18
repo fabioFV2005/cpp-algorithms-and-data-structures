@@ -1,8 +1,6 @@
 #include <iostream>
 #include <stack>
 using namespace std;
-// beecrowd | 1238
-// combiner
 
 int main()
 {
