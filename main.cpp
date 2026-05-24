@@ -1,42 +1,41 @@
-// 3sum-closest-> Problem leetCode
+// Letter Combinations of a Phone Number -> Problem leetCode.
+// Difficult: medium
+// Topics: HashTable, Backtracking, String.
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
-int solve(vector<int> &nums, int target)
+vector<string> result;
+
+vector<string> cellphone = {
+    "", "", "abc", "def",
+    "ghi", "jkl", "mno",
+    "pqrs", "tuv", "wxyz"};
+
+void solve(int n, int next_index)
 {
-    sort(nums.begin(), nums.end());
 
-    int closest = nums[0] + nums[1] + nums[2];
+    // cout << cellphone[n].length() - 1 << endl;
+    // for (int i = 0; i < cellphone[n].length(); i++)
+    //     result.push_back(string(1, cellphone[n][i]));
 
-    for (int i = 0; i < nums.size(); i++)
+    for (int i = 0; i < cellphone[n].length(); i++)
     {
-        if (i > 0 && nums[i] == nums[i - 1])
-            continue;
-
-        int left = i + 1, right = nums.size() - 1;
-
-        while (left < right)
+        for (int j = 0; j < cellphone[next_index].length(); j++)
         {
-            int sum = nums[i] + nums[left] + nums[right];
-
-            if (abs(sum - target) < abs(closest - target))
-                closest = sum;
-
-            if (sum == target)
-                return sum;
-            else if (sum > target)
-                right--;
-            else
-                left++;
+            // cout << cellphone[n][i] << cellphone[next_index][j] << endl;
+            result.push_back(string(1, cellphone[n][i]) + cellphone[next_index][j]);
         }
     }
-    return closest;
-}
+};
 int main()
 {
-    vector<int> nums = {0, 0, 0};
-    sort(nums.begin(), nums.end());
-    cout << solve(nums, 2) << endl;
+
+    string numbers = "25";
+    // cin >> numbers;
+    for (int i = 0; i < numbers.length() - 1; i++)
+        solve(numbers[i] - '0', numbers[i + 1] - '0');
+    for (auto res : result)
+        cout << res << " ";
     return 0;
 };
