@@ -1,23 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-// Merge Strings Alternately -> Leetcode
+class Solution {
+public:
+    bool increasingTriplet(vector<int>& nums) {
+        int max1 = INT_MAX;
+        int max2 = INT_MAX;
 
-int main()
-{
-
-    string word1 = "abcd", word2 = "pq", new_word;
-    int length1 = word1.length(), length2 = word2.length();
-    for (int i = 0; i < max(length1, length2); i++)
-    {
-        if (i < length1)
-            new_word += word1[i];
-        if (i < length2)
-            new_word += word2[i];
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] <= max1)
+                max1 = nums[i];
+            else if (nums[i] <= max2)
+                max2 = nums[i];
+            else
+                return true;
+        }
+        return false;
     }
-
-    cout << new_word;
-
-    return 0;
 };
