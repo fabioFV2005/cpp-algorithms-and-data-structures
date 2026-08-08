@@ -3,18 +3,18 @@
 using namespace std;
 
 int main() {
-
     vector<int> nums = {0, 1, 0, 3, 12};
-    int read = 0, write = 0, aux=0;
+    int read = 0;
     while (read < nums.size()) {
+        if (nums[read] == 0) {
+            for (int i = read; i < nums.size(); i++) {
+                if (nums[i] != 0) {
+                    nums[read] = nums[i];
+                    nums[i] = 0;
+                    break;
+                }
 
-        if(nums[read] != 0) {
-
-            aux = nums[read];
-            nums[read] = nums[write];
-            nums[write] = aux;
-            write++;
-
+            }
         }
         read++;
 
