@@ -1,3 +1,6 @@
+//
+// Created by Fabio on 08/08/2026.
+//
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -12,7 +15,7 @@ int main() {
     while (right <= nums.size()) {
         int sum = 0;
         for (int i = left; i < right; i++) {
-                sum += nums[i];
+            sum += nums[i];
         }
         max_average = max(max_average, static_cast<double>(sum) / k);
         right++;
