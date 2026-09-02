@@ -1,30 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <algorithm>
 using namespace std;
 
-static bool isVowel(const char c) {
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
 
 int main() {
-    string s = "abciiidef", subString;
-    int k = 3;
-    int count = 0;
-    for (int i = 0; i < k; i++) {
-        if (isVowel(s[i]))count++;
-    }
-    int max_count = count;
-    for (int i = k; i < s.length(); i++) {
-        if (isVowel(s[i - k])) {
-            count--;
-        }
-
-        if (isVowel(s[i])) {
-            count++;
-        }
-        max_count = max(max_count, count);
-    }
-    cout << max_count << endl;
+    int n, division;
+    cin >> n;
+    n % 2 ==0  && n > 2 ? cout << "YES" << endl : cout << "NO" << endl;
     return 0;
 }
