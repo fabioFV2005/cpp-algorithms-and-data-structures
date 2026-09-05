@@ -6,8 +6,17 @@ using namespace std;
 
 
 int main() {
-    int n, division;
+    int n;
+    string word;
     cin >> n;
-    n % 2 ==0  && n > 2 ? cout << "YES" << endl : cout << "NO" << endl;
+    while (n--) {
+        cin >> word;
+        if (word.length() <= 10) {
+            cout << word << endl;
+            continue;
+        }
+        cout << word[0] <<word.length() -2<<word[word.length()-1] <<endl;
+    }
+
     return 0;
 }
