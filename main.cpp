@@ -2,17 +2,18 @@
 #include <iomanip>
 using namespace std;
 
-int increase_or_decrease(string s) {
-    if (s == "++X" || s == "X++") return 1;
-    else return -1;
-}
+
 int main() {
-    int n, count = 0;
-    string s;
-    cin >> n;
-    while (n--) {
-        cin >> s;
-        count += increase_or_decrease(s);
+    int n, k, count = 0;
+    cin >> n >> k;
+    int participants[n];
+    for (int i = 0; i < n; i++) {
+        cin >> participants[i];
+    }
+    int score = participants[k-1];
+    for (int i = 0; i < n; i++) {
+        if (participants[i] < 1) continue;
+        if (participants[i] >= score) count++;
     }
     cout << count << endl;
     return 0;
