@@ -1,20 +1,18 @@
 #include <iostream>
-#include <iomanip>
+#include <cctype>
 using namespace std;
 
-
-int main() {
-    int x,y;
-    int matrix[5][5] = {0};
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
-            cin >> matrix[i][j];
-            if (matrix[i][j] == 1) {
-                x = i;
-                y = j;
-            }
-        }
+int solve(string s1, string s2) {
+    for (int i = 0; i < s1.length(); i++) {
+        if (tolower(s1[i]) < tolower(s2[i])) return -1;
+        if ( tolower(s2[i]) < tolower(s1[i])) return 1;
     }
-    cout << abs(y - 2) + abs(x - 2) <<endl;
+    return 0;
+}
+int main() {
+
+    string s1, s2;
+    cin >>  s1 >> s2;
+    cout << solve(s1, s2)<< endl;
     return 0;
 }
