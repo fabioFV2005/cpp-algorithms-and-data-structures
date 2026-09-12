@@ -4,9 +4,14 @@ using namespace std;
 
 
 int main() {
-    string s;
-    cin >> s;
-    s[0] = toupper(s[0]);
-    cout << s;
+
+    int limak, bob, count = 0;
+    cin >> limak >> bob;
+    while (limak <= bob) {
+        limak *= 3;
+        bob *= 2;
+        count++;
+    }
+    cout << count;
     return 0;
 }
