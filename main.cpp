@@ -1,17 +1,13 @@
 #include <iostream>
 #include <cctype>
+#include <algorithm>
 using namespace std;
 
 
 int main() {
-
-    int limak, bob, count = 0;
-    cin >> limak >> bob;
-    while (limak <= bob) {
-        limak *= 3;
-        bob *= 2;
-        count++;
-    }
-    cout << count;
+    int x, operation=0;
+    cin >> x;
+    operation = (x+4)/5;
+    cout << operation;
     return 0;
 }
