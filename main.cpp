@@ -3,18 +3,21 @@
 #include <algorithm>
 using namespace std;
 
-
-int main() {
-    int n;
-    int read=1, write=0, count=0;
-    string s;
-    cin >> n;
-    cin >> s;
-    for (int i = 0; i < n; i++) {
-        if (s[i] == s[i+1]) {
-            count++;
-        }
+int solve(int w, int k) {
+    int sum = 0;
+    for (int i = w; i >=1; i--)  {
+        sum += i*k;
     }
-    cout << count << endl;
+    return sum;
+}
+int main() {
+
+    int k,n,w;
+    // k is the initial price of one banana,
+    // w is the number of bananas he wants to buy,
+    // n is the amount of money he has.
+    cin >> k >> n >> w;
+    int total = solve(w,k);
+    (total - n) > 0 ? cout << total - n << endl: cout << 0 << endl;
     return 0;
 }
