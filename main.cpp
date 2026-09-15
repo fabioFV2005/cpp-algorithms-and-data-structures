@@ -2,18 +2,25 @@
 #include <string>
 using namespace std;
 
-bool NearlyLuckyNumber(char digit) {
-    return digit == '4' || digit == '7';
-}
 
 int main() {
-    int count = 0;
-    string digits;
-    cin >> digits;
-    for (int i = 0; i < digits.length(); i++) {
-        if (NearlyLuckyNumber(digits[i])) count++;
+    int n, A, D;
+    string s;
+    cin >> n;
+    cin >> s;
+    for (int i = 0; i < n; i++) {
+        if (s[i]== 'A') {
+            A++;
+        }else if (s[i]== 'D') {
+            D++;
+        }
     }
-    if (count == 4 || count == 7) cout << "YES" << endl;
-    else cout << "NO" << endl;
+    if (A>D) {
+        cout << "Anton" << endl;
+    }else if (A<D){
+        cout << "Danik" << endl;
+    }else {
+        cout << "Friendship" << endl;
+    }
     return 0;
 }
