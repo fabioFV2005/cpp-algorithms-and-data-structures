@@ -1,17 +1,19 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
-bool is_multiple_of_ten(int n) {
-    return n % 10 == 0;
+bool NearlyLuckyNumber(char digit) {
+    return digit == '4' || digit == '7';
 }
+
 int main() {
-    int n, k;
-    cin >> n >> k;
-    while (k--) {
-        if (!is_multiple_of_ten(n)) n--;
-        else n /= 10;
+    int count = 0;
+    string digits;
+    cin >> digits;
+    for (int i = 0; i < digits.length(); i++) {
+        if (NearlyLuckyNumber(digits[i])) count++;
     }
-    cout << n << endl;
+    if (count == 4 || count == 7) cout << "YES" << endl;
+    else cout << "NO" << endl;
     return 0;
 }
