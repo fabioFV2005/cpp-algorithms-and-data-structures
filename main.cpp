@@ -1,15 +1,23 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
-int main() {
-    int n, h, a, count=0;
-    cin >> n >> h;
-    for (int i = 0; i < n; i++) {
-        cin >> a;
-        if (a > h) count+=2;
-        else count+=1;
+bool is_distinct(int y) {
+    bool used[10] = {};
+    while (y > 0) {
+        int digit = y % 10;
+        if (used[digit]) {
+            return false;
+        }
+        used[digit] = true;
+        y /= 10;
     }
-    cout << count << endl;
+    return true;
+}
+int main() {
+    int y;
+    cin >> y;
+    do {
+        y++;
+    } while (!is_distinct(y));
+    cout << y << endl;
 }
