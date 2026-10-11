@@ -1,23 +1,21 @@
+
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
-bool is_distinct(int y) {
-    bool used[10] = {};
-    while (y > 0) {
-        int digit = y % 10;
-        if (used[digit]) {
-            return false;
-        }
-        used[digit] = true;
-        y /= 10;
-    }
-    return true;
-}
 int main() {
-    int y;
-    cin >> y;
-    do {
-        y++;
-    } while (!is_distinct(y));
-    cout << y << endl;
+    int n;
+    cin >> n;
+    int passengers = 0;
+    int max_value = 0;
+    for (int i = 0; i < n; i++) {
+        int a, b;
+        cin >> a >> b;
+        passengers = passengers - a + b;
+        max_value = max(max_value, passengers);
+    }
+
+    cout << max_value ;
+
+    return 0;
 }
