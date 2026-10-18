@@ -1,21 +1,18 @@
 
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
 int main() {
-    int n;
+    bool control;
+    int n, query;
     cin >> n;
-    int passengers = 0;
-    int max_value = 0;
-    for (int i = 0; i < n; i++) {
-        int a, b;
-        cin >> a >> b;
-        passengers = passengers - a + b;
-        max_value = max(max_value, passengers);
+    while (n--) {
+        cin >> query;
+        if (query == 1) {
+            cout << "HARD";
+            return 0;
+        }
     }
-
-    cout << max_value ;
-
+    cout << "EASY";
     return 0;
 }
