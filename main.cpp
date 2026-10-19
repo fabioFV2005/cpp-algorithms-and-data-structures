@@ -1,18 +1,18 @@
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
-    int n, counter=0;
-    string pole, aux=" ";
+    int n, values, sum=0, i =0;
     cin >> n;
-    while (n--) {
-        cin >> pole;
-        if (aux[1] == pole[0]) {
-            counter++;
-        }
-        aux = pole;
+    while (i < n) {
+        cin >> values;
+        sum += values;
+        i++;
     }
-    cout << counter + 1 << endl;
+    double result = (double) sum / (double) n;
+    cout << fixed << setprecision(12) << result << endl;
+
     return 0;
 }
