@@ -8,5 +8,4 @@ include_directories(strings)
 
 add_executable(cpp_algorithms_and_data_structures
         main.cpp
-
 )
