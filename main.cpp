@@ -1,18 +1,23 @@
 
 #include <iostream>
-#include <iomanip>
+#include <vector>
 using namespace std;
 
 int main() {
-    int n, values, sum=0, i =0;
+    int n;
     cin >> n;
-    while (i < n) {
-        cin >> values;
-        sum += values;
-        i++;
+    vector<int>v(n );
+    vector<int>res(n + 1);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    double result = (double) sum / (double) n;
-    cout << fixed << setprecision(12) << result << endl;
+    for (int i = 0; i < n; i++) {
+        res[v[i] - 1] = i + 1;
+    }
+    for (int i = 0; i < n; i++) {
+        cout << res[i] << " ";
+    }
+
 
     return 0;
 }
