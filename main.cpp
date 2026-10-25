@@ -4,20 +4,21 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int>v(n );
-    vector<int>res(n + 1);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    vector<int> horseShoes(4);
+    int changes = 0;
+    bool control = false;
+    for (int i = 0; i < 4; i++) {
+        cin >> horseShoes[i];
     }
-    for (int i = 0; i < n; i++) {
-        res[v[i] - 1] = i + 1;
+    for (int i = 0; i < 4; i++) {
+        control = false;
+        for (int j = 0; j < i; j++) {
+            if (horseShoes[i] == horseShoes[j] && control == false) {
+                changes++;
+                control = true;
+            }
+        }
     }
-    for (int i = 0; i < n; i++) {
-        cout << res[i] << " ";
-    }
-
-
+    cout << changes << endl;
     return 0;
 }
