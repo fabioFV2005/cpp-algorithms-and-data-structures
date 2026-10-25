@@ -1,15 +1,18 @@
-
 #include <iostream>
 #include <vector>
 using namespace std;
 
 int main() {
-    string str1, str2, result = "";
-    cin >> str1 >> str2;
-    for (int i = 0; i < str1.size(); i++) {
-        if (str1[i] != str2[i]) result += "1";
-        else result += "0";
+
+    int a, b, n;
+    cin >>n;
+    while(n--) {
+        cin >> a >> b;
+        if (a % b == 0) {
+            cout << 0<< endl;
+            continue;
+        }
+        cout <<b - a%b << endl;
     }
-    cout << result << endl;
-    return 0;
+        return 0;
 }
