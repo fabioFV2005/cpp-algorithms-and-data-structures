@@ -4,21 +4,12 @@
 using namespace std;
 
 int main() {
-    vector<int> horseShoes(4);
-    int changes = 0;
-    bool control = false;
-    for (int i = 0; i < 4; i++) {
-        cin >> horseShoes[i];
+    string str1, str2, result = "";
+    cin >> str1 >> str2;
+    for (int i = 0; i < str1.size(); i++) {
+        if (str1[i] != str2[i]) result += "1";
+        else result += "0";
     }
-    for (int i = 0; i < 4; i++) {
-        control = false;
-        for (int j = 0; j < i; j++) {
-            if (horseShoes[i] == horseShoes[j] && control == false) {
-                changes++;
-                control = true;
-            }
-        }
-    }
-    cout << changes << endl;
+    cout << result << endl;
     return 0;
 }
