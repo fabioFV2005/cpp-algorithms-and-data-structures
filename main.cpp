@@ -1,23 +1,24 @@
+
 #include <iostream>
+#include <vector>
 using namespace std;
 
-bool is_distinct(int y) {
-    bool used[10] = {};
-    while (y > 0) {
-        int digit = y % 10;
-        if (used[digit]) {
-            return false;
-        }
-        used[digit] = true;
-        y /= 10;
-    }
-    return true;
-}
 int main() {
-    int y;
-    cin >> y;
-    do {
-        y++;
-    } while (!is_distinct(y));
-    cout << y << endl;
+    vector<int> horseShoes(4);
+    int changes = 0;
+    bool control = false;
+    for (int i = 0; i < 4; i++) {
+        cin >> horseShoes[i];
+    }
+    for (int i = 0; i < 4; i++) {
+        control = false;
+        for (int j = 0; j < i; j++) {
+            if (horseShoes[i] == horseShoes[j] && control == false) {
+                changes++;
+                control = true;
+            }
+        }
+    }
+    cout << changes << endl;
+    return 0;
 }
