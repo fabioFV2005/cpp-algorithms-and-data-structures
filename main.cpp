@@ -1,24 +1,21 @@
-
 #include <iostream>
 #include <vector>
 using namespace std;
 
 int main() {
-    vector<int> horseShoes(4);
-    int changes = 0;
-    bool control = false;
-    for (int i = 0; i < 4; i++) {
-        cin >> horseShoes[i];
+
+    vector<string> feelings = {"I hate", "I love"} ;
+    vector<string> subjects = {"that", "it"} ;
+    int n, status = 0;
+    cin >> n;
+    if (n <= 1) {
+        cout << feelings[0] << " " << subjects[1]<< endl;
+        return 0;
     }
-    for (int i = 0; i < 4; i++) {
-        control = false;
-        for (int j = 0; j < i; j++) {
-            if (horseShoes[i] == horseShoes[j] && control == false) {
-                changes++;
-                control = true;
-            }
-        }
+    while(n--) {
+        cout << feelings[status] << " ";
+        n != 0 ? cout << subjects[0] << " " : cout << subjects[1] << endl;
+        status == 0 ? status = 1 : status = 0;
     }
-    cout << changes << endl;
     return 0;
 }
